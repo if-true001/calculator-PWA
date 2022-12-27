@@ -1,0 +1,31 @@
+{
+    "name": "calculator",
+    "short_name": "calc",
+    "start_url": "./app/app.html",
+    "background_color": "#252525",
+    "theme_color": "#000000",
+    "display": "standalone",
+    "icons":[
+        {
+            "src": "./app/icons/calc64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "./app/icons/calc144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "./app/icons/calc512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "./app/icons/calc-maskable950.png",
+            "sizes": "950x950",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
