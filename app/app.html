@@ -1,19 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#317EFB"/>
+    <meta name="theme-color" content="#317EFB" />
     <link rel="apple-touch-icon" href="app/icons/calc-maskable950.png">
     <link rel="stylesheet" href="app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>calculator</title>
 </head>
+
 <body>
 
-    <div class="page"></div>
+    <div class="container">
+        <div id="sideBar">
+            <div class="sidebar-content">
+                <ul>
+                    <li>
+                        <a href="https://github.com/if-true001/calculator-PWA">
+                            Github
+                            <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 28 29" width="25px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/if-true001/calculator-PWA/graphs/contributors">
+                            contributors
+                            <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 0 28 29" width="25px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <form>
+            <div class="output">
+                <div class="menu">
+                    <div id="menuBar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <input type="text" id="display" name="display">
+            </div>
+            <div class="input">
+                <div class="btn-row">
+                    <input type="button" value="(" onclick="display.value += '(' ">
+                    <input type="button" value=")" onclick="display.value += ')' ">
+                    <input type="button" value="." onclick="display.value += '.' ">
+                    <input type="button" value="&divide;" onclick="display.value += '÷' ">
+                </div>
+                <div class="btn-row">
+                    <input type="button" value="7" onclick="display.value += '7' ">
+                    <input type="button" value="8" onclick="display.value += '8' ">
+                    <input type="button" value="9" onclick="display.value += '9' ">
+                    <input type="button" value="&times;" onclick="display.value += 'x' ">
+                </div>
+                <div class="btn-row">
+                    <input type="button" value="4" onclick="display.value += '4' ">
+                    <input type="button" value="5" onclick="display.value += '5' ">
+                    <input type="button" value="6" onclick="display.value += '6' ">
+                    <input type="button" value="-" onclick="display.value += '-' ">
+                </div>
+                <div class="btn-row">
+                    <input type="button" value="1" onclick="display.value += '1' ">
+                    <input type="button" value="2" onclick="display.value += '2' ">
+                    <input type="button" value="3" onclick="display.value += '3' ">
+                    <input type="button" value="+" onclick="display.value += '+' ">
+                </div>
+                <div class="btn-row">
+                    <input type="button" value="AC" onclick="display.value = '' ">
+                    <input type="button" value="0" onclick="display.value += '0' ">
+                    <input type="button" value="DE" onclick="display.value = display.value.slice(0,-1)">
+                    <input type="button" value="=" class="equal" onclick="compute()">
+                </div>
+            </div>
+            </form>
+    </div>
 
     <script src="app.js"></script>
 
 </body>
+
 </html>

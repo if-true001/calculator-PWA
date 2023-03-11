@@ -1,10 +1,311 @@
-*{
+:root {
+    --dark: #000000;
+    --light: #ffffff;
+    --primary: #03dac6;
+    --secondary: #6300ee;
+    --accent1: #808080;
+    --accent2: #80808080;
+}
+
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
-.page{
+@media (prefers-color-scheme: dark) {
+    .container {
+        background: var(--dark);
+    }
+
+    #sideBar {
+        background: var(--dark);
+    }
+
+    #sideBar a {
+        color: var(--light);
+    }
+
+    .sidebar-content ul li svg {
+        fill: var(--light);
+    }
+
+    #display {
+        color: var(--light);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .container {
+        background: var(--light);
+    }
+
+    #sideBar {
+        background: var(--light);
+    }
+
+    #sideBar a {
+        color: var(--dark);
+    }
+
+    .sidebar-content ul li svg {
+        fill: var(--dark);
+    }
+
+    #display {
+        color: var(--dark);
+    }
+}
+
+.container {
     width: 100%;
     height: 100vh;
+}
+
+#sideBar {
+    transform: translate(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    z-index: 1;
+    -webkit-transition: .2s ease-in-out;
+    -moz-transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
+}
+
+.open {
+    transform: translate(0%) !important;
+}
+
+/* menu bar */
+
+#sideBar a {
+    text-decoration: none;
+}
+
+.sidebar-content {
+    width: 100%;
+    height: 70%;
+    padding: 5%;
+}
+
+.sidebar-content ul {
+    list-style: none;
+}
+
+.sidebar-content ul li {
+    height: 40px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    justify-content: center;
+    background: var(--accent2);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.sidebar-content ul li:hover {
+    background: var(--accent1);
+}
+
+.sidebar-content ul li svg {
+    margin-left: 2px;
+    vertical-align: middle;
+}
+
+form .output {
+    width: 100%;
+    height: 35vh;
+    display: flex;
+    flex-direction: row;
+}
+
+form .output .menu {
+    padding: 1rem;
+    z-index: 2;
+}
+
+.output .menu #menuBar {
+    width: 90px;
+    height: 45px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .2s ease-in-out;
+    -moz-transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+
+.output .menu #menuBar.open{
+    width: 60px;
+    -webkit-transition: 0s;
+    -moz-transition: 0s;
+    -o-transition: 0s;
+    transition: 0s;
+}
+
+form .output .menu #menuBar span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 60%;
+    background: var(--accent1);
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+.menu #menuBar span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 50%;
+    background: var(--accent1);
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+.menu #menuBar span:nth-child(even) {
+    left: 50%;
+    border-radius: 0 9px 9px 0;
+}
+
+.menu #menuBar span:nth-child(odd) {
+    left: 0px;
+    border-radius: 9px 0 0 9px;
+}
+
+.menu #menuBar span:nth-child(1),
+.menu #menuBar span:nth-child(2) {
+    top: 0px;
+}
+
+.menu #menuBar span:nth-child(3),
+.menu #menuBar span:nth-child(4) {
+    top: 18px;
+}
+
+.menu #menuBar span:nth-child(5),
+.menu #menuBar span:nth-child(6) {
+    top: 36px;
+}
+
+.menu #menuBar.open span:nth-child(1),
+.menu #menuBar.open span:nth-child(6) {
+    -webkit-transform: rotate(48deg);
+    -moz-transform: rotate(48deg);
+    -o-transform: rotate(48deg);
+    transform: rotate(48deg);
+}
+
+.menu #menuBar.open span:nth-child(2),
+.menu #menuBar.open span:nth-child(5) {
+    -webkit-transform: rotate(-48deg);
+    -moz-transform: rotate(-48deg);
+    -o-transform: rotate(-48deg);
+    transform: rotate(-48deg);
+}
+
+.menu #menuBar.open span:nth-child(1) {
+    left: 5px;
+    top: 7px;
+}
+
+.menu #menuBar.open span:nth-child(2) {
+    left: calc(50% - 5px);
+    top: 7px;
+}
+
+.menu #menuBar.open span:nth-child(3) {
+    left: -50%;
+    opacity: 0;
+}
+
+.menu #menuBar.open span:nth-child(4) {
+    left: 100%;
+    opacity: 0;
+}
+
+.menu #menuBar.open span:nth-child(5) {
+    left: 5px;
+    top: 29px;
+}
+
+.menu #menuBar.open span:nth-child(6) {
+    left: calc(50% - 5px);
+    top: 29px;
+}
+
+form #display {
+    width: 75%;
+    height: 55px;
+    pointer-events: none;
+    border: none;
+    box-shadow: none;
+    margin-right: 1rem;
+    align-self: center;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right;
+    background: transparent;
+}
+
+form .input {
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+form .input .btn-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+form .input input {
+    width: 21%;
+    height: 11vh;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    background-color: var(--primary);
+    color: var(--dark);
+    cursor: pointer;
+}
+
+form .input .equal {
+    background: var(--secondary);
 }
